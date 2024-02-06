@@ -8,8 +8,8 @@
    % ______________________________________
 
 % link value
-J_link = 10;
-C_link = 10;
+J_link = 1;
+C_link = 0.9;
 
 % laod value
 J_load = J_link;

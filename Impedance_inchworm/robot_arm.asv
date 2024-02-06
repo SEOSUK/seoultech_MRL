@@ -3,8 +3,8 @@
 robot = rigidBodyTree('DataFormat', 'column', 'MaxNumBodies', 4);
 
 % set parameter
-L = 0.4;
-l = 0.1;
+L = 0.14;
+l = 0.07;
 
 %set initial theta 
 theta1 = -deg2rad(0);
@@ -67,7 +67,7 @@ theta2 = -deg2rad(0);
 
 for i=deg2rad(-0):deg2rad(30):deg2rad(100)
     for j=deg2rad(-0):deg2rad(30):deg2rad(100)
-        for k=deg2rad(-100):deg2rad(10):deg2rad(110)
+        for k=deg2rad(0):deg2rad(100):deg2rad(110)
             theta1 = i;
             theta2 = j;
             theta3 = k;
@@ -91,7 +91,7 @@ x_max = 2*L;
 y_max = 2*L + l;
 x = x_i;
 
-for y=0.1:-0.01:-0.1 %x move
+for y=0.2:-0.01:-0.2 %x move
 
     theta2 = -acos((x^2+y^2-2*L^2)/(2*L^2));
     alpha = atan2(y,x);
@@ -126,7 +126,7 @@ for y=0.1:-0.01:-0.1 %x move
     pause(0.03)
 end
 
-for y=-0.1:0.01:0.1 %x move
+for y=-0.2:0.01:0.2 %x move
 
     theta2 = -acos((x^2+y^2-2*L^2)/(2*L^2));
     alpha = atan2(y,x);
