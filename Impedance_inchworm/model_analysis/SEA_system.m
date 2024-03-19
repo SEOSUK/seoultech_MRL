@@ -19,6 +19,7 @@ L1 = 0.20075; %m
 L2 = 0.149;   %m
 m1 = 0.340;   %kg
 m2 = 0.140;   %kg
+mEE = 0.07;   %kg
 CoM1 = 0.117; %m
 CoM2 = 0.045; %m
 
@@ -26,17 +27,23 @@ CoM2 = 0.045; %m
 k1 = 5.9*10^3; %N/m
 k2 = 5.9*10^3; %N/m
 
-c1 = 0.1; %ma.um.dea.ro value
-c2 = 0.1;%ma.um.dea.ro value
+c1 = 0.05; %ma.um.dea.ro value
+c2 = 0.05;%ma.um.dea.ro value
 
-J1 = m1*L1^2/12 + m1*CoM1^2; %kgm^2
-J2 = m2*L2^2/12 + m2*CoM2^2; %kgm^2
+J1 = m1*L1^2/12 + m1*CoM1^2;                     %kgm^2
+J2 = m2*L2^2/12 + m2*CoM2^2 + (mEE*(L2-CoM2)^2); %kgm^2
 
 %ref value
 Fx = 0;
 Fy = 0;
 Px = 0.1;
 py = 0.05;
+
+%MCG value
+g = 9.81;
+N1 = m1*CoM1^2 + J1 + m2*L1^2 + m2*CoM2^2 + J2;
+N2 = m2*L1*CoM2;
+N3 = m2*CoM2^2 + J2;
 
 %% Control section
 
